@@ -95,7 +95,25 @@ public class TraversalReview {
      * @return
      */
     public static int evenMax(TreeNode node) {
-        return Integer.MIN_VALUE;
+        if (node == null) return Integer.MIN_VALUE;
+        
+        int max = Integer.MIN_VALUE;
+        if (node.data % 2 == 0) {
+            max = node.data;
+        }
+
+
+        int leftMax = evenMax(node.left);
+        
+            if (leftMax > max) {
+                max = leftMax;
+            }
+        int rightMax = evenMax(node.right);
+    
+            if (rightMax > max) {
+                max = rightMax;
+            } 
+        return max;
     }
 
     /**
@@ -149,6 +167,8 @@ public class TraversalReview {
      * @return whether every node has 0 or 2 children
      */
     public static boolean noSingleChildren(TreeNode node) {
+        if (node == null) return true;
+
         return false;
     }
 
